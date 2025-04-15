@@ -17,22 +17,20 @@ frame = tk.Frame(root, width=450, height=150, bg="#f4b6ed").pack(padx=10,pady=10
 
 #0-9 buttons
 buttons_frame = tk.Frame(root,width=325,height=300,bg="#f4b6ed").place(x=25,y=185)
-
-ButtonFrame_1 = tk.Frame(buttons_frame,width=60,height=200,bg="#df7fd5")
-ButtonFrame_1.place(x=40,y=210) #if u do it in 1 line it wont actually assign a place to a frame
-#tk.Label(ButtonFrame_1,text="1",bg="#df7fd5",fg="#f4b6ed").pack(padx=25,pady=20)
-#ButtonFrame_2 = tk.Frame(buttons_frame,width=60,height=60,bg="#df7fd5").place(x=40,y=300)
-#ButtonFrame_3 = tk.Frame(buttons_frame,width=60,height=60,bg="#df7fd5").place(x=40,y=390)
-ButtonFrame_4 = tk.Frame(buttons_frame,width=60,height=200,bg="#df7fd5")
-ButtonFrame_4.place(x=120,y=210)
-#ButtonFrame_5 = tk.Frame(buttons_frame,width=60,height=60,bg="#df7fd5").place(x=120,y=300)
-#ButtonFrame_6 = tk.Frame(buttons_frame,width=60,height=60,bg="#df7fd5").place(x=120,y=390)
-ButtonFrame_7 = tk.Frame(buttons_frame,width=60,height=200,bg="#df7fd5")
-ButtonFrame_7.place(x=200,y=210)
-#ButtonFrame_8 = tk.Frame(buttons_frame,width=60,height=60,bg="#df7fd5").place(x=200,y=300)
-#ButtonFrame_9 = tk.Frame(buttons_frame,width=60,height=60,bg="#df7fd5").place(x=200,y=390)
-ButtonFrame_0 = tk.Frame(buttons_frame,width=60,height=200,bg="#df7fd5")
-ButtonFrame_0.place(x=280,y=210)
+def buttons():
+    x = [40,120,200]
+    y = [210,300,390]
+    nr = 1
+    for i in range(3):
+        for j in range(3):
+            ButtonFrame = tk.Frame(buttons_frame,width=60,height=60,bg="#df7fd5")
+            ButtonFrame.place(x=x[j],y=y[i])                                        #if u do it in 1 line it wont actually assign a place to a frame
+            tk.Button(ButtonFrame,text=f"{nr}",bg="#df7fd5",fg="#f4b6ed",).place(x=0,y=0,width=60,height=60)
+            nr +=1
+    ButtonFrame_0 = tk.Frame(buttons_frame,width=60,height=240,bg="#df7fd5")
+    ButtonFrame_0.place(x=280,y=210)
+    tk.Button(ButtonFrame_0,text="0",bg="#df7fd5",fg="#f4b6ed",).place(x=0,y=0,width=60,height=240)
+buttons()
 
 #calculations buttons
 calculations_frame = tk.Frame(root,width=100,height=300,bg="#f4b6ed").pack(padx=25,pady=10,side=tk.RIGHT)
